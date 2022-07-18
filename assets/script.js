@@ -17,11 +17,9 @@ $("#currentDay").text(today);
 function saveInput () {
     for (i = 9; i < 18; i++) {
         var savedInput = localStorage.getItem("hour "+i);
-        var hour = "hour " + i;
-        hour.textContent = savedInput
         console.log(savedInput)
-        console.log(hour)
-        //Not binding to page after save
+        var hour = document.getElementById("hour"+i);
+        hour.textContent = savedInput
     }
 }
 saveInput();
@@ -82,21 +80,12 @@ saveButton17.addEventListener("click", function(event) {
 });
 
 
-// Function to color code time slots
-// function colorCode() {
-//     getElementsByClassName("form-control").each(function() {
-//        for (i = 9; i < 18; i++){
-//             var blockTime = 9;
-//             if (blockTime < currentTime) {
-//                 style.backgroundColor = gray;
-//             } else if (blockTime === currentTime) {
-//                 style.backgroundColor = red;
-//             } else {
-//                 style.backgroundColor = green;
-//             }
-//         }
-//     })
-// }
-
-//colorCode();
-
+for (i = 9; i < 18; i++){
+    if (i < currentTime) {
+        document.getElementById("hour" + i).className += " bg-secondary";
+    } else if (i === currentTime) {
+        document.getElementById("hour" + i).className += " bg-danger";
+    } else {
+        document.getElementById("hour" + i).className += " bg-success";
+    }
+};
