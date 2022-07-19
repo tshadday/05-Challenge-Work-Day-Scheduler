@@ -83,7 +83,7 @@ saveButton17.addEventListener("click", function(event) {
 for (i = 9; i < 18; i++){
     if (i < currentTime) {
         document.getElementById("hour" + i).className += " bg-secondary";
-    } else if (i === currentTime) {
+    } else if (i == currentTime) {
         document.getElementById("hour" + i).className += " bg-danger";
     } else {
         document.getElementById("hour" + i).className += " bg-success";
